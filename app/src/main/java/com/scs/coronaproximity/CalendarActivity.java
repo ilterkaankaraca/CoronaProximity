@@ -30,7 +30,7 @@ public class CalendarActivity extends AppCompatActivity {
         TextView quarantineText = (TextView)findViewById(R.id.quarantineText);
         quarantineText.setText("Select a beginning date in calendar");
         picker.show(getSupportFragmentManager(), picker.toString());
-        picker.addOnPositiveButtonClickListener();
+        //picker.addOnPositiveButtonClickListener();
     }
 
     public void onClickSearchButton(View view) {
