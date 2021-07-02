@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoronaProximity.iml" filepath="$PROJECT_DIR$/.idea/modules/CoronaProximity.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CoronaProximity.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CoronaProximity.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/corona_proximity.iml" filepath="$PROJECT_DIR$/corona_proximity.iml" />
     </modules>
   </component>
 </project>
