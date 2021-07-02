@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,20 +22,19 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+        builder = MaterialDatePicker.Builder.dateRangePicker();
+        picker = builder.build();
     }
     @SuppressLint("SetTextI18n")
     public void onClickButtonSelectDate(View view) {
         TextView quarantineText = (TextView)findViewById(R.id.quarantineText);
         quarantineText.setText("Select a beginning date in calendar");
-        builder = MaterialDatePicker.Builder.dateRangePicker();
-        picker = builder.build();
         picker.show(getSupportFragmentManager(), picker.toString());
+        picker.addOnPositiveButtonClickListener();
     }
 
     public void onClickSearchButton(View view) {
         Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
-
-
 }

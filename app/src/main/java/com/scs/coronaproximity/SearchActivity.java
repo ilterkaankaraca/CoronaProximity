@@ -22,10 +22,7 @@ public class SearchActivity extends AppCompatActivity {
        String json1;
         api = new API();
         Button button9 = (Button)findViewById(R.id.button9);
-        json1 = api.getJson("02000");
-
+       // json1 = api.getJson("02000");
        // Log.d("MyApp",api.deserializeJson(json1).getName());
-    //;
-
     }
 }
