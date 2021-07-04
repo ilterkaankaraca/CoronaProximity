@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252D5C"
     tools:context=".CalendarActivity">
 
     <TextView
@@ -12,17 +13,20 @@
         android:layout_height="211dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="228dp"
         android:layout_marginEnd="19dp"
         android:layout_marginRight="19dp"
-        android:layout_marginBottom="13dp"
+        android:gravity="center_horizontal"
         android:text="@string/label_quarantine_status"
-        android:textSize="20sp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
@@ -30,16 +34,17 @@
         android:layout_height="72dp"
         android:layout_marginStart="157dp"
         android:layout_marginLeft="157dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
-        android:layout_marginBottom="208dp"
+        android:layout_marginBottom="276dp"
+        android:background="@drawable/rounded_corners"
         android:text="@string/button_start"
+        app:backgroundTint="#1DC8B8"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quarantineText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
@@ -48,8 +53,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#12d1a8"
         android:onClick="onClickSearchButton"
         android:text="@string/button_search"
+        app:backgroundTint="#1DC8B8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UsingOnClickInXml" />
@@ -63,8 +71,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="191dp"
         android:layout_marginRight="191dp"
+        android:background="@drawable/rounded_corners"
         android:onClick="onClickSearchButton"
         android:text="@string/button_location"
+        app:backgroundTint="#1DC8B8"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"

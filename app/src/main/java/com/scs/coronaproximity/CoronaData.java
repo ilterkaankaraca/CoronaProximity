@@ -33,6 +33,31 @@ import com.google.gson.Gson;
 }*/
 public class CoronaData{
     private String name;
+    private String ags;
+    private String county;
+    private String population;
+    private String cases;
+    private String deaths;
+    private String casesPerWeek;
+    private String deathsPerWeek;
+    private String recovered;
+    private String weekIncidence;
+    private String casesPer100k;
+
+    public String getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(String population) {
+        this.population = population;
+    }
+
+
+    public class Delta {
+        private String cases;
+        private String deaths;
+        private String recovered;
+    }
 
     public String getName() {
         return name;
@@ -41,4 +66,10 @@ public class CoronaData{
     public void setName(String name) {
         this.name = name;
     }
+
+
+
+
+
+
 }
