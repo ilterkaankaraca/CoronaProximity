@@ -27,8 +27,6 @@ public class CalendarActivity extends AppCompatActivity {
     private Button mPickDateButton;
     private  TextView quarantineText;
     boolean inQuarantine;
-    final Handler handler = new Handler();
-    FragmentManager supportFragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +76,7 @@ public class CalendarActivity extends AppCompatActivity {
                     public void onPositiveButtonClick(Object selection) {
 
                         Timer timer = new Timer(false);
-                        quarantineText.setText("You are in quarantine: " + (picker.getSelection().second-todayMillis)/(1000*60*60*24) + "days");
+                        quarantineText.setText("You are in quarantine: " + (picker.getSelection().second-todayMillis)/(1000*60*60*24) + " days");
                         mPickDateButton.setText("End quarantine");
                         inQuarantine=true;
                     }

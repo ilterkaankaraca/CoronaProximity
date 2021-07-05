@@ -4,8 +4,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.scs.coronaproximity.api.APIClient;
 import com.scs.coronaproximity.api.APIInterface;
 import com.scs.coronaproximity.api.CoronaData;
+
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,15 +23,20 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         TextView nameText;
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        nameText = (TextView)findViewById(R.id.name);
+        nameText = findViewById(R.id.name);
+        Call<CoronaData> call = apiInterface.getHamburg();
+
+
         // int thirdOpening = StringUtils.ordinalIndexOf(json, "{", 3);
         // int firstClosing = StringUtils.ordinalIndexOf(json, "}", 2) +1;
        // json = json.substring(thirdOpening, firstClosing);
         //nameText.setText(getObject().getName());
-        Call<CoronaData> call = apiInterface.getHamburg();
+
         call.enqueue(new Callback<CoronaData>() {
             @Override
             public void onFailure(Call<CoronaData> call, Throwable t) {
@@ -37,7 +48,7 @@ public class SearchActivity extends AppCompatActivity {
                 Log.d("TAG",response.code()+"");
                 String displayResponse = "";
                 CoronaData resource = response.body();
-                nameText.setText(resource.getName());
+                nameText.setText(resource.name);
 
             }
         });

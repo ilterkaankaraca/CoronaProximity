@@ -33,7 +33,7 @@ import com.google.gson.annotations.SerializedName;
 }*/
 public class CoronaData {
     @SerializedName("name")
-    private String name;
+    public String name;
     @SerializedName("ags")
     private String ags;
     @SerializedName("county")
@@ -143,7 +143,7 @@ public class CoronaData {
         this.casesPer100k = casesPer100k;
     }
 
-    public class Delta {
+    /*public class Delta {
 
         @SerializedName("cases")
         private String cases;
@@ -175,7 +175,7 @@ public class CoronaData {
         public void setRecovered(String recovered) {
             this.recovered = recovered;
         }
-    }
+    }*/
 
 
 }
