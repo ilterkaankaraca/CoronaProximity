@@ -7,6 +7,6 @@ import retrofit2.http.Path;
 
 
 public interface APIInterface {
-    @GET("02000")
-    Call<String> getHamburg();
+    @GET("06412")
+    Call<String> getCity();
 }

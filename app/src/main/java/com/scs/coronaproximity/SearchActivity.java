@@ -2,9 +2,11 @@ package com.scs.coronaproximity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import com.google.gson.Gson;
 import com.scs.coronaproximity.api.APIClient;
@@ -13,46 +15,55 @@ import com.scs.coronaproximity.api.CoronaData;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.scs.coronaproximity.api.APIClient.retrofit;
-
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private APIInterface apiInterface;
-    Gson gson = new Gson();
+    TextView countyText;
+    TextView stateText;
+    TextView populationText;
+    TextView casesText;
+    TextView deathsText;
+    TextView casesPerWeekText;
+    TextView deathsPerText;
+    TextView stateAbbreviationText;
+    TextView recoveredText;
+    TextView weekIncidenceText;
+    TextView casesPer100KText;
+    TextView deltaCasesText;
+    TextView deltaDeathsText;
+    TextView deltaRecoveredText;
+
     CoronaData coronaData;
 
-    // String json = "{\"data\":{\"02000\":{\"ags\":\"02000\",\"name\":\"Hamburg\",\"county\":\"SK Hamburg\",\"state\":\"Hamburg\",\"population\":1847253,\"cases\":77455,\"deaths\":1597,\"casesPerWeek\":163,\"deathsPerWeek\":0,\"stateAbbreviation\":\"HH\",\"recovered\":75349,\"weekIncidence\":8.823913129387257,\"casesPer100k\":4192.982769550245,\"delta\":{\"cases\":22,\"deaths\":0,\"recovered\":20}}},\"meta\":{\"source\":\"Robert Koch-Institut\",\"contact\":\"Marlon Lueckert (m.lueckert@me.com)\",\"info\":\"https://github.com/marlon360/rki-covid-api\",\"lastUpdate\":\"2021-07-04T00:00:00.000Z\",\"lastCheckedForUpdate\":\"2021-07-04T13:32:35.485Z\"}" ;
-    //String json;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TextView nameText;
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        nameText = findViewById(R.id.county);
-        APIInterface scalarService = retrofit.create(APIInterface.class);
-        Call<String> call = apiInterface.getHamburg();
-        nameText.setText("karaca451");
-
-        // int thirdOpening = StringUtils.ordinalIndexOf(json, "{", 3);
-        // int firstClosing = StringUtils.ordinalIndexOf(json, "}", 2) +1;
-        // json = json.substring(thirdOpening, firstClosing);
-        //nameText.setText(getObject().getName());
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<String> call = apiInterface.getCity();
+        countyText = findViewById(R.id.name);
+        stateText = findViewById(R.id.county);
+        populationText = findViewById(R.id.population);
+        casesText = findViewById(R.id.cases);
+        deathsText = findViewById(R.id.deaths);
+        casesPerWeekText = findViewById(R.id.casesPerWeek);
+        deathsPerText = findViewById(R.id.deathsPerWeek);
+        stateAbbreviationText = findViewById(R.id.stateAbbreviation);
+        weekIncidenceText = findViewById(R.id.weekIncidence);
+        deltaCasesText = findViewById(R.id.deltaCases);
+        deltaDeathsText = findViewById(R.id.deltaDeaths);
+        deltaRecoveredText = findViewById(R.id.deltaRecovered);
+        recoveredText = findViewById(R.id.recovered);
+        casesPer100KText = findViewById(R.id.casesPer100k);
 
         call.enqueue(new Callback<String>() {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-
+                Log.d("TAG", "onFailure: ");
                 t.printStackTrace();
-                nameText.setText("kaan");
                 call.cancel();
             }
 
@@ -60,15 +71,46 @@ public class SearchActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
                     String responseString = response.body();
-                    Log.d("TAG", responseString);
+                    Log.d("TAG", "onResponse");
                     int thirdOpening = StringUtils.ordinalIndexOf(responseString, "{", 3);
                     int firstClosing = StringUtils.ordinalIndexOf(responseString, "}", 2) +1;
                     responseString = responseString.substring(thirdOpening, firstClosing);
-                    Log.d("D", responseString);
                     coronaData = new Gson().fromJson(responseString, CoronaData.class);
-                    nameText.setText(coronaData.name);
+                    Log.d("TAG", coronaData.name);
+
+
+                    countyText.setText(coronaData.getName());
+                    stateText.setText(coronaData.getCounty());
+                    populationText.setText(coronaData.getPopulation());
+                    casesText.setText(coronaData.getCases());
+                    deathsText.setText(coronaData.getDeaths());
+                    casesPerWeekText.setText(coronaData.getCasesPerWeek());
+                    deathsPerText.setText(coronaData.getDeathsPerWeek());
+                    stateAbbreviationText.setText(coronaData.getStateAbbreviation());
+                    weekIncidenceText.setText(coronaData.getWeekIncidence());
+                    deltaCasesText.setText(coronaData.getDelta().getCases());
+                    deltaDeathsText.setText(coronaData.getDelta().getCases());
+                    deltaRecoveredText.setText(coronaData.getDelta().getRecovered());
+                    recoveredText.setText(coronaData.getRecovered());
+                    casesPer100KText.setText(coronaData.getCasesPer100k());
                 }
             }
         });
+    }
+    public void onClickSearchButton(View view) {
+
+
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+
+
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
     }
 }

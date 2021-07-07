@@ -3,8 +3,6 @@ package com.scs.coronaproximity.api;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.HashMap;
-
 /*{
   "data": {
     "02000": {
@@ -68,6 +66,27 @@ public class CoronaData {
     @SerializedName("casesPer100k")
     @Expose
     private String casesPer100k;
+    @SerializedName("stateAbbreviation")
+    @Expose
+    private String stateAbbreviation;
+
+    private Delta delta;
+
+    public Delta getDelta() {
+        return delta;
+    }
+
+    public void setDelta(Delta delta) {
+        this.delta = delta;
+    }
+
+    public String getStateAbbreviation() {
+        return stateAbbreviation;
+    }
+
+    public void setStateAbbreviation(String stateAbbreviation) {
+        this.stateAbbreviation = stateAbbreviation;
+    }
 
     public String getName() {
         return name;
