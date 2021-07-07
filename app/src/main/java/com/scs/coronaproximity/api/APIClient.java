@@ -4,10 +4,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class APIClient {
 
-    private static Retrofit retrofit = null;
+    public static Retrofit retrofit = null;
+
 
     public static Retrofit getClient() {
 
@@ -18,13 +20,11 @@ public class APIClient {
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.corona-zahlen.org/districts/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .client(client)
                 .build();
 
-
-
-        return retrofit;
+        return(retrofit);
     }
 
 }

@@ -1,6 +1,9 @@
 package com.scs.coronaproximity.api;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.HashMap;
 
 /*{
   "data": {
@@ -33,26 +36,37 @@ import com.google.gson.annotations.SerializedName;
 }*/
 public class CoronaData {
     @SerializedName("name")
+    @Expose
     public String name;
     @SerializedName("ags")
+    @Expose
     private String ags;
     @SerializedName("county")
+    @Expose
     private String county;
     @SerializedName("population")
+    @Expose
     private String population;
     @SerializedName("cases")
+    @Expose
     private String cases;
     @SerializedName("deaths")
+    @Expose
     private String deaths;
     @SerializedName("casesPerWeek")
+    @Expose
     private String casesPerWeek;
     @SerializedName("deathsPerWeek")
+    @Expose
     private String deathsPerWeek;
     @SerializedName("recovered")
+    @Expose
     private String recovered;
     @SerializedName("weekIncidence")
+    @Expose
     private String weekIncidence;
     @SerializedName("casesPer100k")
+    @Expose
     private String casesPer100k;
 
     public String getName() {
@@ -143,13 +157,16 @@ public class CoronaData {
         this.casesPer100k = casesPer100k;
     }
 
-    /*public class Delta {
+    public class Delta {
 
         @SerializedName("cases")
+        @Expose
         private String cases;
         @SerializedName("deaths")
+        @Expose
         private String deaths;
         @SerializedName("recovered")
+        @Expose
         private String recovered;
 
         public String getCases() {
@@ -175,7 +192,6 @@ public class CoronaData {
         public void setRecovered(String recovered) {
             this.recovered = recovered;
         }
-    }*/
-
+    }
 
 }

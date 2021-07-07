@@ -9,6 +9,6 @@ import retrofit2.http.Path;
 public interface APIInterface {
 
     @GET("02000")
-    Call<CoronaData> getHamburg();
+    Call<String> getHamburg();
 
 }
