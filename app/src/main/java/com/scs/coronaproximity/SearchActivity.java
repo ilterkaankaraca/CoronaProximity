@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        nameText = findViewById(R.id.name);
+        nameText = findViewById(R.id.county);
         APIInterface scalarService = retrofit.create(APIInterface.class);
         Call<String> call = apiInterface.getHamburg();
         nameText.setText("karaca451");

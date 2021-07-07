@@ -1,36 +1,570 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252D5C"
     tools:context=".SearchActivity">
 
 
+
     <SearchView
+        android:id="@+id/searchView"
         android:layout_width="195dp"
         android:layout_height="42dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="600dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="78dp"
-        android:layout_height="26dp"
-        android:text="melisa"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="239dp" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchView"
+        android:rowCount="10"
+        android:columnCount="2" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="COUNTY"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/county"
+                    android:layout_width="107dp"
+                    android:layout_height="21dp"
+                    android:layout_marginTop="10dp"
+                    android:text="county"
+                    app:layout_constraintBottom_toTopOf="@+id/deltaRecovered"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="STATE"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/state"
+                    android:layout_width="123dp"
+                    android:layout_height="22dp"
+                    android:text="state"
+                    app:layout_constraintBottom_toTopOf="@+id/casesPer100k"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/deltaRecovered"
+                    app:layout_constraintTop_toBottomOf="@+id/county" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="POPULATION"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/population"
+                    android:layout_width="138dp"
+                    android:layout_height="27dp"
+                    android:text="population"
+                    app:layout_constraintBottom_toTopOf="@+id/deaths"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/cases"
+                    app:layout_constraintTop_toBottomOf="@+id/casesPer100k" />
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="CASES"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+
+                <TextView
+                    android:id="@+id/cases"
+                    android:layout_width="118dp"
+                    android:layout_height="19dp"
+                    android:text="cases"
+                    app:layout_constraintBottom_toTopOf="@+id/weekIncidence"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deltaDeaths" />
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="DEATHS"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/deaths"
+                    android:layout_width="149dp"
+                    android:layout_height="21dp"
+                    android:text="deaths"
+                    app:layout_constraintBottom_toTopOf="@+id/casesPerWeek"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/deltaCases"
+                    app:layout_constraintTop_toBottomOf="@+id/population" />
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="CASES PER WEEK"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/casesPerWeek"
+                    android:layout_width="156dp"
+                    android:layout_height="21dp"
+                    android:text="casesPerWeek"
+                    app:layout_constraintBottom_toTopOf="@+id/deathsPerWeek"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.333"
+                    app:layout_constraintStart_toEndOf="@+id/recovered"
+                    app:layout_constraintTop_toBottomOf="@+id/deaths" />
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="DEATHS PER WEEK"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/deathsPerWeek"
+                    android:layout_width="143dp"
+                    android:layout_height="22dp"
+                    android:text="deathsPerWeek"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/stateAbbreviation"
+                    app:layout_constraintTop_toBottomOf="@+id/casesPerWeek" />
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="STATE ABBREVATION"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/stateAbbreviation"
+                    android:layout_width="161dp"
+                    android:layout_height="26dp"
+                    android:text="stateAbbreviation"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recovered"
+                    app:layout_constraintVertical_bias="1.0" />
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="RECOVERED"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/recovered"
+                    android:layout_width="78dp"
+                    android:layout_height="26dp"
+                    android:text="recovered"
+                    app:layout_constraintBottom_toTopOf="@+id/stateAbbreviation"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deltaCases" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="WEEK INCIDENCE"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/weekIncidence"
+                    android:layout_width="105dp"
+                    android:layout_height="21dp"
+                    android:text="weekIncidence"
+                    app:layout_constraintBottom_toTopOf="@+id/deltaCases"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cases" />
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="CASES PER 100K"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/casesPer100k"
+                    android:layout_width="117dp"
+                    android:layout_height="32dp"
+                    android:text="casesPer100k"
+                    app:layout_constraintBottom_toTopOf="@+id/population"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/deltaDeaths"
+                    app:layout_constraintTop_toBottomOf="@+id/state" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="COUNTY"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/deltaCases"
+                    android:layout_width="110dp"
+                    android:layout_height="32dp"
+                    android:text="deltaCases"
+                    app:layout_constraintBottom_toTopOf="@+id/recovered"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weekIncidence" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="6"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="COUNTY"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/deltaDeaths"
+                    android:layout_width="124dp"
+                    android:layout_height="26dp"
+                    android:text="deltaDeaths"
+                    app:layout_constraintBottom_toTopOf="@+id/cases"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deltaRecovered" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="6"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="132dp"
+                    android:layout_height="wrap_content"
+                    android:text="COUNTY"
+                    android:textColor="@color/purple_200"
+                    app:layout_constraintTop_toTopOf="@+id/county" />
+                <TextView
+                    android:id="@+id/deltaRecovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:text="deltaRecovered"
+                    app:layout_constraintBottom_toTopOf="@+id/state"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deltaDeaths" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+
+</RelativeLayout>
