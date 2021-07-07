@@ -8,14 +8,16 @@
     tools:context=".SearchActivity">
 
 
-
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="195dp"
-        android:layout_height="42dp"
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <GridLayout
@@ -45,16 +47,16 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="NAME"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
 
 
                 <TextView
                     android:id="@+id/name"
-                    android:layout_width="107dp"
+                    android:layout_width="143dp"
                     android:layout_height="21dp"
                     android:layout_marginTop="10dp"
                     android:text="Name"
@@ -86,16 +88,16 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="COUNTY"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
 
                 <TextView
                     android:id="@+id/county"
-                    android:layout_width="123dp"
-                    android:layout_height="22dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="county"
                     app:layout_constraintBottom_toTopOf="@+id/casesPer100k"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -126,15 +128,15 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="POPULATION"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/population"
                     android:layout_width="138dp"
-                    android:layout_height="27dp"
+                    android:layout_height="21dp"
                     android:text="population"
                     app:layout_constraintBottom_toTopOf="@+id/deaths"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -167,16 +169,16 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="CASES"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
 
                 <TextView
                     android:id="@+id/cases"
-                    android:layout_width="118dp"
-                    android:layout_height="19dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="cases"
                     app:layout_constraintBottom_toTopOf="@+id/weekIncidence"
                     app:layout_constraintStart_toStartOf="parent"
@@ -206,10 +208,10 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="DEATHS"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/deaths"
@@ -245,14 +247,14 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="CASES PER WEEK"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/casesPerWeek"
-                    android:layout_width="156dp"
+                    android:layout_width="143dp"
                     android:layout_height="21dp"
                     android:text="casesPerWeek"
                     app:layout_constraintBottom_toTopOf="@+id/deathsPerWeek"
@@ -285,15 +287,15 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="DEATHS PER WEEK"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/deathsPerWeek"
                     android:layout_width="143dp"
-                    android:layout_height="22dp"
+                    android:layout_height="21dp"
                     android:text="deathsPerWeek"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -325,15 +327,15 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="STATE ABBREVIATION"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/stateAbbreviation"
-                    android:layout_width="161dp"
-                    android:layout_height="26dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="stateAbbreviation"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -364,15 +366,15 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="RECOVERED"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/recovered"
-                    android:layout_width="78dp"
-                    android:layout_height="26dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="recovered"
                     app:layout_constraintBottom_toTopOf="@+id/stateAbbreviation"
                     app:layout_constraintStart_toStartOf="parent"
@@ -401,14 +403,14 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="WEEK INCIDENCE"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/weekIncidence"
-                    android:layout_width="105dp"
+                    android:layout_width="143dp"
                     android:layout_height="21dp"
                     android:text="weekIncidence"
                     app:layout_constraintBottom_toTopOf="@+id/deltaCases"
@@ -439,15 +441,15 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center">
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="CASES PER 100K"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/casesPer100k"
-                    android:layout_width="117dp"
-                    android:layout_height="32dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="casesPer100k"
                     app:layout_constraintBottom_toTopOf="@+id/population"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -478,15 +480,15 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="DELTA CASES"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/deltaCases"
-                    android:layout_width="110dp"
-                    android:layout_height="32dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="deltaCases"
                     app:layout_constraintBottom_toTopOf="@+id/recovered"
                     app:layout_constraintStart_toStartOf="parent"
@@ -515,15 +517,15 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="DELTA DEATHS"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/deltaDeaths"
-                    android:layout_width="124dp"
-                    android:layout_height="26dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="deltaDeaths"
                     app:layout_constraintBottom_toTopOf="@+id/cases"
                     app:layout_constraintStart_toStartOf="parent"
@@ -552,15 +554,15 @@
                 android:gravity="center">
 
                 <TextView
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="DELTA RECOVERED"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#9db1c7"
                     app:layout_constraintTop_toTopOf="@+id/name" />
                 <TextView
                     android:id="@+id/deltaRecovered"
-                    android:layout_width="wrap_content"
-                    android:layout_height="26dp"
+                    android:layout_width="143dp"
+                    android:layout_height="21dp"
                     android:text="deltaRecovered"
                     app:layout_constraintBottom_toTopOf="@+id/county"
                     app:layout_constraintStart_toStartOf="parent"
