@@ -22,21 +22,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class CalendarActivity extends AppCompatActivity {
-    private MaterialDatePicker.Builder<Pair<Long, Long>> builder;
-    private MaterialDatePicker<Pair<Long, Long>> picker;
-    private Button mPickDateButton;
-    private  TextView quarantineText;
-    boolean inQuarantine;
-
+    boolean inQuarantine=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-        mPickDateButton = findViewById(R.id.button);
-        quarantineText = (TextView)findViewById(R.id.quarantineText);
-        builder = MaterialDatePicker.Builder.dateRangePicker();
-        picker = builder.setTitleText("Select date").build();
-        inQuarantine=false;
+        Button mPickDateButton = findViewById(R.id.button);
+        TextView quarantineText = (TextView)findViewById(R.id.quarantineText);
+        MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
+        MaterialDatePicker<Pair<Long, Long>> picker = builder.setTitleText("Select date").build();
+
         Calendar cal = Calendar.getInstance();
         int year  = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
@@ -59,7 +54,8 @@ public class CalendarActivity extends AppCompatActivity {
                             picker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
                         }
                         else if (inQuarantine){
-                            quarantineText.setText("Start quarantine");
+                            quarantineText.setText("You are not in quarantine");
+                            mPickDateButton.setText("Start quarantine");
                             inQuarantine=false;
                         }
                     }

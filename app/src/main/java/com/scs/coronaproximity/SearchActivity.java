@@ -19,50 +19,48 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-    private APIInterface apiInterface;
-    TextView countyText;
-    TextView stateText;
-    TextView populationText;
-    TextView casesText;
-    TextView deathsText;
-    TextView casesPerWeekText;
-    TextView deathsPerText;
-    TextView stateAbbreviationText;
-    TextView recoveredText;
-    TextView weekIncidenceText;
-    TextView casesPer100KText;
-    TextView deltaCasesText;
-    TextView deltaDeathsText;
-    TextView deltaRecoveredText;
-
+public class SearchActivity extends AppCompatActivity{
     CoronaData coronaData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<String> call = apiInterface.getCity();
-        countyText = findViewById(R.id.name);
-        stateText = findViewById(R.id.county);
-        populationText = findViewById(R.id.population);
-        casesText = findViewById(R.id.cases);
-        deathsText = findViewById(R.id.deaths);
-        casesPerWeekText = findViewById(R.id.casesPerWeek);
-        deathsPerText = findViewById(R.id.deathsPerWeek);
-        stateAbbreviationText = findViewById(R.id.stateAbbreviation);
-        weekIncidenceText = findViewById(R.id.weekIncidence);
-        deltaCasesText = findViewById(R.id.deltaCases);
-        deltaDeathsText = findViewById(R.id.deltaDeaths);
-        deltaRecoveredText = findViewById(R.id.deltaRecovered);
-        recoveredText = findViewById(R.id.recovered);
-        casesPer100KText = findViewById(R.id.casesPer100k);
 
+         APIInterface  apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<String> call = apiInterface.getCity();
+        TextView countyText = findViewById(R.id.name);
+        TextView stateText = findViewById(R.id.county);
+        TextView populationText = findViewById(R.id.population);
+        TextView casesText = findViewById(R.id.cases);
+        TextView deathsText = findViewById(R.id.deaths);
+        TextView casesPerWeekText = findViewById(R.id.casesPerWeek);
+        TextView deathsPerText = findViewById(R.id.deathsPerWeek);
+        TextView stateAbbreviationText = findViewById(R.id.stateAbbreviation);
+        TextView weekIncidenceText = findViewById(R.id.weekIncidence);
+        TextView deltaCasesText = findViewById(R.id.deltaCases);
+        TextView deltaDeathsText = findViewById(R.id.deltaDeaths);
+        TextView deltaRecoveredText = findViewById(R.id.deltaRecovered);
+        TextView recoveredText = findViewById(R.id.recovered);
+        TextView casesPer100KText = findViewById(R.id.casesPer100k);
         call.enqueue(new Callback<String>() {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.d("TAG", "onFailure: ");
+                countyText.setText("Connection Error");
+                stateText.setText("Connection Error");
+                populationText.setText("Connection Error");
+                casesText.setText("Connection Error");
+                deathsText.setText("Connection Error");
+                casesPerWeekText.setText("Connection Error");
+                deathsPerText.setText("Connection Error");
+                stateAbbreviationText.setText("Connection Error");
+                weekIncidenceText.setText("Connection Error");
+                deltaCasesText.setText("Connection Error");
+                deltaDeathsText.setText("Connection Error");
+                deltaRecoveredText.setText("Connection Error");
+                recoveredText.setText("Connection Error");
+                casesPer100KText.setText("Connection Error");
                 t.printStackTrace();
                 call.cancel();
             }
@@ -72,45 +70,28 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
                 if (response.isSuccessful()) {
                     String responseString = response.body();
                     Log.d("TAG", "onResponse");
-                    int thirdOpening = StringUtils.ordinalIndexOf(responseString, "{", 3);
-                    int firstClosing = StringUtils.ordinalIndexOf(responseString, "}", 2) +1;
-                    responseString = responseString.substring(thirdOpening, firstClosing);
-                    coronaData = new Gson().fromJson(responseString, CoronaData.class);
-                    Log.d("TAG", coronaData.name);
-
-
-                    countyText.setText(coronaData.getName());
-                    stateText.setText(coronaData.getCounty());
-                    populationText.setText(coronaData.getPopulation());
-                    casesText.setText(coronaData.getCases());
-                    deathsText.setText(coronaData.getDeaths());
-                    casesPerWeekText.setText(coronaData.getCasesPerWeek());
-                    deathsPerText.setText(coronaData.getDeathsPerWeek());
-                    stateAbbreviationText.setText(coronaData.getStateAbbreviation());
-                    weekIncidenceText.setText(coronaData.getWeekIncidence());
-                    deltaCasesText.setText(coronaData.getDelta().getCases());
-                    deltaDeathsText.setText(coronaData.getDelta().getCases());
-                    deltaRecoveredText.setText(coronaData.getDelta().getRecovered());
-                    recoveredText.setText(coronaData.getRecovered());
-                    casesPer100KText.setText(coronaData.getCasesPer100k());
+                    //check if response is okay
+                        int thirdOpening = StringUtils.ordinalIndexOf(responseString, "{", 3);
+                        int firstClosing = StringUtils.ordinalIndexOf(responseString, "}", 2) + 1;
+                        responseString = responseString.substring(thirdOpening, firstClosing);
+                        coronaData = new Gson().fromJson(responseString, CoronaData.class);
+                        Log.d("TAG", coronaData.getName());
+                        countyText.setText(coronaData.getName());
+                        stateText.setText(coronaData.getCounty());
+                        populationText.setText(coronaData.getPopulation());
+                        casesText.setText(coronaData.getCases());
+                        deathsText.setText(coronaData.getDeaths());
+                        casesPerWeekText.setText(coronaData.getCasesPerWeek());
+                        deathsPerText.setText(coronaData.getDeathsPerWeek());
+                        stateAbbreviationText.setText(coronaData.getStateAbbreviation());
+                        weekIncidenceText.setText(coronaData.getWeekIncidence());
+                        deltaCasesText.setText(coronaData.getDelta().getCases());
+                        deltaDeathsText.setText(coronaData.getDelta().getCases());
+                        deltaRecoveredText.setText(coronaData.getDelta().getRecovered());
+                        recoveredText.setText(coronaData.getRecovered());
+                        casesPer100KText.setText(coronaData.getCasesPer100k());
                 }
             }
         });
-    }
-    public void onClickSearchButton(View view) {
-
-
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-
-
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
     }
 }

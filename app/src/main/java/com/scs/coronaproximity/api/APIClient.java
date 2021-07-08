@@ -10,7 +10,7 @@ public class APIClient {
 
     public static Retrofit retrofit = null;
 
-
+// configure the retrofit builder
     public static Retrofit getClient() {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
