@@ -27,7 +27,7 @@ public class SearchActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-         APIInterface  apiInterface = APIClient.getClient().create(APIInterface.class);
+        APIInterface  apiInterface = APIClient.getClient().create(APIInterface.class);
         Call<String> call = apiInterface.getCity();
         TextView countyText = findViewById(R.id.name);
         TextView stateText = findViewById(R.id.county);
